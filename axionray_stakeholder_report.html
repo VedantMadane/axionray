@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AxionRay Data Analytics - Stakeholder Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0.75in;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.3;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            font-size: 11px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 15px;
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .executive-summary {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+        
+        .executive-summary h2 {
+            color: #1e3a8a;
+            margin-top: 0;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            margin: 18px 0;
+            page-break-inside: avoid;
+        }
+        
+        .section h2 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 3px;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+        
+        .section h3 {
+            color: #374151;
+            font-size: 13px;
+            margin: 12px 0 8px 0;
+        }
+        
+        .section p, .section li {
+            font-size: 11px;
+            margin: 6px 0;
+        }
+        
+        .section ul {
+            margin: 8px 0;
+            padding-left: 18px;
+        }
+        
+        .key-findings {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 12px 0;
+        }
+        
+        .key-findings h3 {
+            color: #059669;
+            margin-top: 0;
+            font-size: 14px;
+        }
+        
+        .metrics-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 12px 0;
+        }
+        
+        .metric-card {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 8px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .metric-value {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 2px;
+        }
+        
+        .metric-label {
+            font-size: 9px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .highlight-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #92400e;
+            margin: 0 0 6px 0;
+            font-size: 12px;
+        }
+        
+        .recommendations {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            border-radius: 4px;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        
+        .recommendations h3 {
+            color: #059669;
+            margin-top: 0;
+            font-size: 14px;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 12px 0;
+        }
+        
+        .column-section {
+            background: #f9fafb;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .column-section h4 {
+            margin: 0 0 8px 0;
+            color: #1e3a8a;
+            font-size: 12px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 10px;
+        }
+        
+        .data-table th {
+            background: #1e3a8a;
+            color: white;
+            padding: 6px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 4px 6px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        
+        .footer {
+            background: #f1f5f9;
+            border-top: 2px solid #3b82f6;
+            padding: 10px;
+            margin: 20px 0 0 0;
+            text-align: center;
+            font-size: 10px;
+            color: #6b7280;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        strong {
+            color: #1e3a8a;
+        }
+
+        /* New styles for visual category cards */
+        .failure-categories {
+            background: #fef7e6;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .failure-categories h4 {
+            color: #92400e;
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .category-pill {
+            background: #fbbf24;
+            color: #92400e;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 500;
+            border: 1px solid #f59e0b;
+            white-space: nowrap;
+        }
+
+        .category-pill.material {
+            background: #dc2626;
+            color: white;
+            border-color: #b91c1c;
+        }
+
+        .category-pill.heating {
+            background: #ea580c;
+            color: white;
+            border-color: #c2410c;
+        }
+
+        .category-pill.functional {
+            background: #7c2d12;
+            color: white;
+            border-color: #451a03;
+        }
+
+        .category-pill.driver {
+            background: #1d4ed8;
+            color: white;
+            border-color: #1e40af;
+        }
+
+        .category-pill.noise {
+            background: #059669;
+            color: white;
+            border-color: #047857;
+        }
+
+        .component-categories {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .component-categories h4 {
+            color: #0c4a6e;
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .component-pill {
+            background: #38bdf8;
+            color: #0c4a6e;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 500;
+            border: 1px solid #0ea5e9;
+            white-space: nowrap;
+        }
+
+        .component-pill.not-mentioned {
+            background: #6b7280;
+            color: white;
+            border-color: #4b5563;
+        }
+
+        .component-pill.boom {
+            background: #dc2626;
+            color: white;
+            border-color: #b91c1c;
+        }
+
+        .component-pill.steering {
+            background: #7c2d12;
+            color: white;
+            border-color: #451a03;
+        }
+
+        .component-pill.ac {
+            background: #0ea5e9;
+            color: white;
+            border-color: #0284c7;
+        }
+
+        .component-pill.hose {
+            background: #059669;
+            color: white;
+            border-color: #047857;
+        }
+        
+        @media print {
+            body {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AxionRay Data Analytics Assignment</h1>
+        <p>Stakeholder Report - Data Integration & Analysis Summary</p>
+    </div>
+
+    <div class="executive-summary">
+        <h2>Executive Summary for Stakeholders</h2>
+        <p>This analysis integrates automotive defect data (100 records) with equipment maintenance data (500 records) to identify failure patterns and cost drivers. The study reveals critical insights for maintenance optimization and quality improvement across multiple equipment categories.</p>
+    </div>
+
+    <div class="section">
+        <h2>Data Cleaning Process</h2>
+        <p>Comprehensive data preparation was performed across multiple datasets:</p>
+        
+        <div class="two-column">
+            <div class="column-section">
+                <h4>Task 1: Steering Defect Data</h4>
+                <ul>
+                    <li><strong>Records processed:</strong> 100 records, 52 columns</li>
+                    <li><strong>Missing values:</strong> Reduced from 178 to 170</li>
+                    <li><strong>Cost range validated:</strong> $27.69 - $3,205.45</li>
+                    <li><strong>Text fields processed:</strong> 100% unique customer verbatim</li>
+                </ul>
+            </div>
+            <div class="column-section">
+                <h4>Task 2: Equipment Maintenance Data</h4>
+                <ul>
+                    <li><strong>Work Orders:</strong> 500 records, 15 columns</li>
+                    <li><strong>Repair Data:</strong> 500 records, 13 columns</li>
+                    <li><strong>Cost data:</strong> Converted to numeric format</li>
+                    <li><strong>Date standardization:</strong> 2022-04-30 to 2024-02-19</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Data Integration Approach</h2>
+        <p>Integration was performed using the explicitly named <strong>"Primary Key"</strong> field with SO[ORDER]-[SEGMENT] format.</p>
+        
+        <div class="highlight-box">
+            <h4>Primary Key Analysis Results</h4>
+            <ul>
+                <li><strong>Work Orders unique keys:</strong> 500</li>
+                <li><strong>Repair Data unique keys:</strong> 495</li>
+                <li><strong>Common keys identified:</strong> 495</li>
+                <li><strong>Work Orders only:</strong> 5 orphaned records</li>
+            </ul>
+        </div>
+
+        <h3>Rationale for Inner Join Selection</h3>
+        <p><strong>Inner Join strategy</strong> was selected to ensure complete records with both work orders and repair costs, eliminating incomplete records that could skew analysis and providing a reliable dataset for trend analysis.</p>
+        
+        <div class="metrics-row">
+            <div class="metric-card">
+                <div class="metric-value">500</div>
+                <div class="metric-label">Records Successfully Merged</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">495</div>
+                <div class="metric-label">Complete Repair Cases</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">5</div>
+                <div class="metric-label">Orphaned Work Orders</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section">
+        <h2>3.1 Trend Analysis - Identified Patterns</h2>
+        
+        <h3>Cost vs Labor Hours Correlation</h3>
+        <div class="highlight-box">
+            <h4>Key Finding: Negligible Correlation (r = 0.041)</h4>
+            <p>Analysis reveals virtually no linear relationship between repair costs and labor hours, indicating that cost and time requirements vary independently. Each repair case requires individual resource assessment.</p>
+        </div>
+        
+        <h3>Yearly Performance Trends</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Total Cost</th>
+                    <th>Mean Cost</th>
+                    <th>Repair Count</th>
+                    <th>Total Hours</th>
+                    <th>Mean Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>2022</strong></td>
+                    <td>$28,198.39</td>
+                    <td>$742.06</td>
+                    <td>38</td>
+                    <td>1,729.33</td>
+                    <td>45.51</td>
+                </tr>
+                <tr>
+                    <td><strong>2023</strong></td>
+                    <td>$38,457.43</td>
+                    <td>$127.77</td>
+                    <td>301</td>
+                    <td>4,352.44</td>
+                    <td>14.46</td>
+                </tr>
+                <tr>
+                    <td><strong>2024</strong></td>
+                    <td>$53,165.44</td>
+                    <td>$330.22</td>
+                    <td>161</td>
+                    <td>2,934.77</td>
+                    <td>18.23</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Key Insight:</strong> 2023 shows highest repair volume (301 cases) with lowest average cost per repair, while 2022 had fewer repairs but highest average cost ($742.06).</p>
+
+        <h3>Product Category Analysis</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Product Category</th>
+                    <th>Mean Cost</th>
+                    <th>Mean Hours</th>
+                    <th>Resource Intensity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>APPL</strong></td>
+                    <td>$685.98</td>
+                    <td>41.02</td>
+                    <td>High cost, high labor</td>
+                </tr>
+                <tr>
+                    <td><strong>SPRAYS</strong></td>
+                    <td>$210.55</td>
+                    <td>15.52</td>
+                    <td>Moderate cost and labor</td>
+                </tr>
+                <tr>
+                    <td><strong>FLOATE</strong></td>
+                    <td>$131.58</td>
+                    <td>5.77</td>
+                    <td>Low labor, moderate cost</td>
+                </tr>
+                <tr>
+                    <td><strong>BALER</strong></td>
+                    <td>$55.20</td>
+                    <td>29.53</td>
+                    <td>High labor, low cost</td>
+                </tr>
+                <tr>
+                    <td><strong>TRACT2</strong></td>
+                    <td>$38.28</td>
+                    <td>5.53</td>
+                    <td>Low cost, low labor</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>3.2 Root Cause Investigation</h2>
+        
+        <div class="failure-categories">
+            <h4>Failure Pattern Categories:</h4>
+            <div class="category-container">
+                <div class="category-pill material">Other (25)</div>
+                <div class="category-pill heating">Material Degradation (22)</div>
+                <div class="category-pill functional">Functional Failure + Temperature Issue (10)</div>
+                <div class="category-pill driver">Temperature Issue (9)</div>
+                <div class="category-pill noise">Noise Issue (4)</div>
+                <div class="category-pill noise">Performance Issue (4)</div>
+                <div class="category-pill driver">Warning System + Driver Assistance (4)</div>
+            </div>
+        </div>
+
+        <div class="key-findings">
+            <h3>Updated Symptom Categorization Analysis</h3>
+            <p><strong>Generated on:</strong> 2025-08-31 16:21:25 | <strong>Total records analyzed:</strong> 100 | <strong>Unique symptom categories:</strong> 22</p>
+            
+            <div class="highlight-box">
+                <h4>New Categories Added</h4>
+                <ul>
+                    <li><strong>TEMPERATURE_ISSUE:</strong> For heating/cooling system problems</li>
+                    <li><strong>FLUID_ISSUE:</strong> For oil, coolant, or fluid-related problems</li>
+                    <li><strong>MECHANICAL_WEAR:</strong> For belt, bearing, or wear-related issues</li>
+                    <li><strong>ELECTRICAL_ISSUE:</strong> For wiring and electrical problems</li>
+                    <li><strong>PERFORMANCE_ISSUE:</strong> For power and acceleration issues</li>
+                </ul>
+            </div>
+
+            <h4>Top Symptom Categories</h4>
+            <ul>
+                <li><strong>OTHER (25):</strong> Unclassified failures requiring further investigation</li>
+                <li><strong>MATERIAL_DEGRADATION (22):</strong> Physical component deterioration</li>
+                <li><strong>FUNCTIONAL_FAILURE + TEMPERATURE_ISSUE (10):</strong> Combined system and heating issues</li>
+                <li><strong>TEMPERATURE_ISSUE (9):</strong> Standalone heating/cooling problems</li>
+                <li><strong>NOISE_ISSUE (4):</strong> Acoustic problems</li>
+                <li><strong>PERFORMANCE_ISSUE (4):</strong> Power and acceleration issues</li>
+                <li><strong>WARNING_SYSTEM + DRIVER_ASSISTANCE (4):</strong> Advanced system alerts</li>
+            </ul>
+
+            <div class="recommendations">
+                <h3>Enhanced Categorization Recommendations</h3>
+                <ul>
+                    <li>Address the most common failure symptoms first (OTHER and MATERIAL_DEGRADATION categories)</li>
+                    <li>Review the new categories for potential quality improvements</li>
+                    <li>Monitor the effectiveness of the updated categorization system</li>
+                    <li>Focus on combination failures (FUNCTIONAL_FAILURE + TEMPERATURE_ISSUE) as they may indicate systemic issues</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="component-categories">
+            <h4>Component Failure Distribution:</h4>
+            <div class="category-container">
+                <div class="component-pill not-mentioned">Not Mentioned (73)</div>
+                <div class="component-pill boom">Boom (21)</div>
+                <div class="component-pill steering">Steering (13)</div>
+                <div class="component-pill ac">Air Conditioner (10)</div>
+                <div class="component-pill hose">Hose (9)</div>
+            </div>
+        </div>
+
+        <div class="key-findings">
+            <h3>Component Failure Frequency (Task 3)</h3>
+            <ul>
+                <li><strong>Not Mentioned (73):</strong> Requires improved diagnostic reporting</li>
+                <li><strong>Boom (21):</strong> High-frequency failure component</li>
+                <li><strong>Steering (13):</strong> Critical safety component failures</li>
+                <li><strong>Air Conditioner (10):</strong> Climate system issues</li>
+                <li><strong>Hose (9):</strong> Hydraulic system failures</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h4>Critical Business Impact</h4>
+            <p><strong>Repair Action Summary:</strong> REPLACEMENT (54 cases) dominates repair actions, indicating component reliability issues. OTHER category (44 cases) suggests need for standardized repair classifications.</p>
+        </div>
+    </div>
+
+    <div class="recommendations">
+        <h3>Strategic Recommendations</h3>
+        <div class="two-column">
+            <div>
+                <h4>Immediate Actions</h4>
+                <ul>
+                    <li>Investigate the 73 "Not Mentioned" component failures to improve diagnostic reporting</li>
+                    <li>Focus preventive maintenance on Boom components (21 failures)</li>
+                    <li>Develop component reliability improvement for high-replacement items</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Strategic Initiatives</h4>
+                <ul>
+                    <li>Optimize APPL equipment maintenance given high cost/labor requirements ($685.98/41.02 hrs)</li>
+                    <li>Standardize repair action classifications to reduce OTHER category (44 cases)</li>
+                    <li>Investigate 2023 efficiency gains (lowest cost per repair: $127.77)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Technical Deliverables:</strong> task1_cleaned_tagged_data.csv | task2_integrated_data.csv | task3_analysis_summary.csv</p>
+        <p>Analysis Coverage: 100 steering defects + 500 integrated repair records | Cost-Hours correlation: 0.041</p>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>
